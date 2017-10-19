@@ -1,0 +1,944 @@
+﻿{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "type": "object",
+    "title": "Root Unit Schema Object",
+    "description": "Contains all game units as properties",
+    "additionalProperties": {
+        "type": "object",
+        "title": "Unit",
+        "description": "FFBE Game Unit",
+        "additionalProperties": false,
+        "properties": {
+            "rarity_min": {
+                "$ref": "#/definitions/unitRarity",
+                "title": "Minimum Unit Rarity"
+            },
+            "rarity_max": {
+                "$ref": "#/definitions/unitRarity",
+                "title": "Maximum Unit Rarity"
+            },
+            "name": {
+                "type": "string",
+                "title": "Unit Base Name",
+                "description": "Default Base Name for unit"
+            },
+            "names": {
+                "$ref": "#/definitions/translationStrings",
+                "title": "Unit's translated names"
+            },
+            "game_id": {
+                "type": "integer",
+                "title": "FFBE Series Game ID",
+                "description": "Interrnal Game ID for Final Fantasy Series Games and Collaborations",
+                "enum": [
+                    10001,
+                    10002,
+                    10003,
+                    10004,
+                    10005,
+                    10006,
+                    10007,
+                    10009,
+                    10010,
+                    10011,
+                    10012,
+                    10013,
+                    10014,
+                    10015,
+                    11001,
+                    11002,
+                    11003,
+                    20001,
+                    20002,
+                    20003,
+                    20004,
+                    20005,
+                    20006,
+                    20007,
+                    20008,
+                    20010,
+                    20011,
+                    20012,
+                    90001
+                ]
+            },
+            "game": {
+                "type": [
+                    "null",
+                    "string"
+                ],
+                "title": "FFBE Series Game Name",
+                "description": "Internal Game Name for Final Fantasy Series and Collaborations",
+                "enum": [
+                    "FFI",
+                    "FFII",
+                    "FFIII",
+                    "FFIV",
+                    "FFV",
+                    "FFVI",
+                    "FFVII",
+                    "FFIX",
+                    "FFX",
+                    "FFXI",
+                    "FFXII",
+                    "FFXIII",
+                    "FFXIV",
+                    "FFXV",
+                    "FFBE",
+                    "FFT",
+                    "FF TYPE-0",
+                    "Terra Battle",
+                    "Imperial SaGa",
+                    "Brave Frontier",
+                    "Crystal Defenders",
+                    "Secret of Mana",
+                    "NieR:Automata",
+                    "Ariana Grande",
+                    null
+                ]
+            },
+            "job_id": {
+                "type": "integer",
+                "title": "Unit Job id",
+                "description": "Internal Job ID for Units",
+                "enum": [
+                    1,
+                    2,
+                    3,
+                    4,
+                    5,
+                    6,
+                    7,
+                    9,
+                    10,
+                    11,
+                    12,
+                    13,
+                    14,
+                    18,
+                    19,
+                    20,
+                    22,
+                    23,
+                    24,
+                    25,
+                    27,
+                    28,
+                    29,
+                    31,
+                    32,
+                    33,
+                    34,
+                    35,
+                    36,
+                    37,
+                    38,
+                    39,
+                    40,
+                    41,
+                    42,
+                    43,
+                    44,
+                    45,
+                    46,
+                    47,
+                    49,
+                    50,
+                    51,
+                    52,
+                    53,
+                    54,
+                    55,
+                    56,
+                    57,
+                    58,
+                    59,
+                    60,
+                    61,
+                    62,
+                    63,
+                    64,
+                    65,
+                    66,
+                    67,
+                    68,
+                    69,
+                    70,
+                    71,
+                    72,
+                    73,
+                    74,
+                    75,
+                    76,
+                    77,
+                    78,
+                    79,
+                    80,
+                    81,
+                    82,
+                    83,
+                    84,
+                    85,
+                    86,
+                    87,
+                    88,
+                    89,
+                    90,
+                    91,
+                    92,
+                    93,
+                    94,
+                    95,
+                    96,
+                    97,
+                    98,
+                    99,
+                    100,
+                    101,
+                    102,
+                    103,
+                    104,
+                    105,
+                    106,
+                    107,
+                    108,
+                    109,
+                    110,
+                    111,
+                    112,
+                    113,
+                    114,
+                    115,
+                    116,
+                    117,
+                    118,
+                    122,
+                    125,
+                    126,
+                    128,
+                    129,
+                    130,
+                    131,
+                    132,
+                    133,
+                    134,
+                    135,
+                    136,
+                    137,
+                    138,
+                    139,
+                    140,
+                    141,
+                    142,
+                    900,
+                    901,
+                    902,
+                    903,
+                    9001,
+                    9002,
+                    9003, 
+                    9004,
+                    9005,
+                    9006,
+                    9007,
+                    9008,
+                    9009,
+                    9010,
+                    9011,
+                    9012,
+                    9014,
+                    9017
+                ]
+            },
+            "job": {
+                "type": [
+                    "null",
+                    "string"
+                ],
+                "title": "Job Name",
+                "description": "Final fantasy or collaboration job name",
+                "enum": [
+                    "Knight",
+                    "Dragoon",
+                    "Paladin",
+                    "Chaos Knight",
+                    "Warrior",
+                    "Ranger",
+                    "Adventurer",
+                    "Monk",
+                    "Thief",
+                    "Bandit",
+                    "Samurai",
+                    "Assassin",
+                    "Black Mage",
+                    "Evoker",
+                    "Mage",
+                    "Dark Mage",
+                    "White Mage",
+                    "White Mage",
+                    "Green Mage",
+                    "High Priest",
+                    "Spellblade",
+                    "Warmage",
+                    "Magic Warrior",
+                    "Red Mage",
+                    "Gunner",
+                    "Sky Pirate",
+                    "Imperial",
+                    "Machinist",
+                    "Songstress",
+                    "Bard",
+                    "Dancer",
+                    "Scholar",
+                    "Salve-maker",
+                    "Professor",
+                    "Reaper",
+                    "Ravager",
+                    "Black Belt",
+                    "Viking",
+                    "Gladiator",
+                    "Ninja",
+                    "Rune Knight",
+                    "General",
+                    "Archmage",
+                    "Lancer",
+                    "Warrior of Light",
+                    "Sage",
+                    "Princess",
+                    "Emperor",
+                    "Airship Tech",
+                    "Summoner",
+                    "Goddess",
+                    "l'Cie",
+                    "Squire",
+                    "Holy Knight",
+                    "Cleric",
+                    "Fell Knight",
+                    "Engineer",
+                    "Juggler",
+                    "Fencer",
+                    "Dark Knight",
+                    "Agito Cadet",
+                    "Tactician",
+                    "White Wizard",
+                    "Red Wizard",
+                    "Black Wizard",
+                    "Holy Sword Hero",
+                    "Young Girl",
+                    "Sprite",
+                    "Pirate",
+                    "Guard Captain",
+                    "Dark Spirit",
+                    "Water Priestess",
+                    "Soldier",
+                    "Mercenary",
+                    "Holy Swordsman",
+                    "Princess",
+                    "Spy",
+                    "Crown Prince",
+                    "Dragon King",
+                    "Serpent",
+                    "Kandar",
+                    "Killer Machine",
+                    "Liquid Metal Slime",
+                    "Golem",
+                    "Slime",
+                    "Berserker",
+                    "Guardian",
+                    "Magitek Soldier",
+                    "Swordsman",
+                    "God of Creation",
+                    "Scion",
+                    "Gambler",
+                    "Wildling",
+                    "Prince",
+                    "Maid",
+                    "Chocobo Knight",
+                    "Archer",
+                    "Blacksmith",
+                    "Divine Knight",
+                    "Astrologist",
+                    "Veritas",
+                    "Moogle",
+                    "Onion Knight",
+                    "Hunter",
+                    "Kingsglaive",
+                    "null",
+                    "null",
+                    "Royal Vagrant",
+                    "Masked Wonder",
+                    "SOLDIER",
+                    "Costume Girl",
+                    "Mog Friend",
+                    "Flowery Lady",
+                    "Dream Mage",
+                    "Tailor",
+                    "King's Shield",
+                    "Prince's Friend",
+                    "Barrier Mage",
+                    "Black Mage Warrior",
+                    "Chocobo Rider",
+                    "YoRHa Troop",
+                    "Machine Lifeform",
+                    "Priest",
+                    "Enhancer",
+                    "EXP Unit",
+                    "Gil Unit",
+                    "Fusion Unit",
+                    "White Knight",
+                    "Chocobo Rider",
+                    "Cupid Archer",
+                    "Cannoneer",
+                    "Archadian Judge",
+                    "Singer",
+                    "Demon Knight",
+                    "Vampire",
+                    "White Witch",
+                    "Tech Mage",
+                    "Artisan",
+                    "Ex-YoRHa Android",
+                    "Cheerleader",
+                    null
+                ]
+            },
+            "sex_id": {
+                "type": "integer",
+                "title": "Unit's Gender id",
+                "description": "internal Unit's gender / sex ",
+                "enum": [
+                    0,
+                    1,
+                    2
+                ]
+            },
+            "sex": {
+                "type": "string",
+                "title": "Unit's Gender",
+                "description": "Gender name",
+                "enum": [
+                    "Other",
+                    "Male",
+                    "Female"
+                ]
+            },
+            "tribe_id": {
+                "type": "integer",
+                "title": "NO IDEA",
+                "description": "NO IDEA ON WHAT IS THIS, flagged optional until we know"
+            },
+            "is_summonable": {
+                "type": "boolean",
+                "title": "Is Summonable",
+                "description": "Whether the unit can be obtaining through normal summon"
+            },
+            "TMR": {
+                "type": [
+                    "array",
+                    "null"
+                ],
+                "title": "Trust Master Reward",
+                "description": "Game Unit's Mechanism to obtain Items and Materia",
+                "additionalItems": false,
+                "maxItems": 2,
+                "minItems": 2,
+                "items": [
+                    {
+                        "type": "string",
+                        "title": "TMR Type",
+                        "description": "Specifies if TMR is Item or Materia",
+                        "enum": [
+                            "EQUIP",
+                            "MATERIA"
+                        ]
+                    },
+                    {
+                        "type": "integer",
+                        "title": "TMR Reward id",
+                        "description": "Specifies the id of the Item or Materia"
+                    }
+                ]
+            },
+            "equip": {
+                "type": "array",
+                "title": "Unit's Equipable Items",
+                "description": "Array containing Equipable Item Type ID's",
+                "maxItems": 25,
+                "minItems": 0,
+                "uniqueItems": true,
+                "items": {
+                    "type": "integer",
+                    "description": "Equipment type IDs, corresponding in the same order to: Dagger, Sword, Great Sword, Katana, Staff, Rod, Bow, Axe, Hammer, Spear, Harp, Whip, Throwing, Gun, Mace, Fist, Light Shield, Heavy Shield, Hat, Helm, Cloth, Light Armor, Heavy Armor, Robe, Accesory",
+                    "enum": [
+                        0,
+                        1,
+                        2,
+                        3,
+                        4,
+                        5,
+                        6,
+                        7,
+                        8,
+                        9,
+                        10,
+                        11,
+                        12,
+                        13,
+                        14,
+                        15,
+                        16,
+                        30,
+                        31,
+                        40,
+                        41,
+                        50,
+                        51,
+                        52,
+                        53,
+                        60
+                    ]
+                }
+            },
+            "entries": {
+                "type": "object",
+                "title": "Unit Entries",
+                "description": "One unit entry for each rarity",
+                "additionalProperties": {
+                    "type": "object",
+                    "additionalProperties": false,
+                    "properties": {
+                        "compendium_id": {
+                            "type": "integer",
+                            "title": "Internal Game's Unit id",
+                            "description": "The unit id used within the game"
+                        },
+                        "rarity": {
+                            "$ref": "#/definitions/unitRarity",
+                            "type": "integer",
+                            "maximum": 6,
+                            "minimum": 1
+                        },
+                        "growth_pattern": {
+                            "type": "integer",
+                            "title": "Growth Pattern",
+                            "description": "Unit's Leveling Experience Required",
+                            "enum": [
+                                1,
+                                5,
+                                10,
+                                15,
+                                20,
+                                30
+                            ]
+                        },
+                        "stats": {
+                            "type": "object",
+                            "title": "Unit Stats Object",
+                            "description": "Array with the following stats [HP, MP, ATK, DEF, MAG, SPR]  in that order ",
+                            "additionalProperties": false,
+                            "maxProperties": 6,
+                            "minProperties": 6,
+                            "properties": {
+                                "HP": {
+                                    "$ref": "#/definitions/statValue",
+                                    "type": "array"
+                                },
+                                "MP": {
+                                    "$ref": "#/definitions/statValue",
+                                    "type": "array"
+                                },
+                                "ATK": {
+                                    "$ref": "#/definitions/statValue",
+                                    "type": "array"
+                                },
+                                "DEF": {
+                                    "$ref": "#/definitions/statValue",
+                                    "type": "array"
+                                },
+                                "MAG": {
+                                    "$ref": "#/definitions/statValue",
+                                    "type": "array"
+                                },
+                                "SPR": {
+                                    "$ref": "#/definitions/statValue",
+                                    "type": "array"
+                                }
+                            },
+                            "required": [
+                                "HP",
+                                "MP",
+                                "ATK",
+                                "DEF",
+                                "MAG",
+                                "SPR"
+                            ]
+                        },
+                        "limitburst_id": {
+                            "type": [
+                                "integer",
+                                "null"
+                            ],
+                            "title": "Unit's Limit Burst id"
+                        },
+                        "attack_count": {
+                            "type": "integer",
+                            "title": "Basic Attack Hit count"
+                        },
+                        "attack_frames": {
+                            "$ref": "#/definitions/frames",
+                            "type": "array"
+                        },
+                        "effect_frames": {
+                            "$ref": "#/definitions/frames",
+                            "type": "array"
+                        },
+                        "max_lb_drop": {
+                            "type": "integer",
+                            "title": "Maximum Limit Burst Drop",
+                            "description": "TO BE CONFIRMED: Max crystals dropped on single action"
+                        },
+                        "ability_slots": {
+                            "type": "integer",
+                            "title": "Unit's Ability Slots",
+                            "description": "How much Materia Abilities can be equipped"
+                        },
+                        "magic_affinity": {
+                            "type": "array",
+                            "title": "Magical Affinity",
+                            "description": "array with magic level unit can use [White, Black, Green, Blue]  in that order",
+                            "maxItems": 4,
+                            "minItems": 4,
+                            "items": {
+                                "type": "integer"
+                            }
+                        },
+                        "element_resist": {
+                            "$ref": "#/definitions/elements",
+                            "type": "array",
+                            "additionalItems": false
+                        },
+                        "status_resist": {
+                            "$ref": "#/definitions/statuses",
+                            "type": "array"
+                        },
+                        "physical_resist": {
+                            "type": "integer",
+                            "title": "Unit's Physical Resistance"
+                        },
+                        "magical_resist": {
+                            "type": "integer",
+                            "title": "Unit's Magical Resistance"
+                        },
+                        "awakening": {
+                            "type": [
+                                "null",
+                                "object"
+                            ],
+                            "title": "Awakening",
+                            "description": "Gil and Materials needed for Awakening or NULL when no awakening available",
+                            "additionalProperties": false,
+                            "properties": {
+                                "gil": {
+                                    "type": "integer",
+                                    "title": "Gil quantity",
+                                    "description": "Gil Value required for awakening"
+                                },
+                                "materials": {
+                                    "type": "object",
+                                    "title": "Materials",
+                                    "description": "Materials needed for Awakening",
+                                    "additionalProperties": false,
+                                    "minProperties": 1,
+                                    "patternProperties": {
+                                        "^[0-9]+$": {
+                                            "type": "integer",
+                                            "title": "Material id",
+                                            "description": "Matches Material id needed for awakening and integer value"
+                                        }
+                                    }
+                                }
+                            },
+                            "required": [
+                                "gil",
+                                "materials"
+                            ]
+                        },
+                        "strings": {
+                            "type": "object",
+                            "additionalProperties": false,
+                            "properties": {
+                                "description": {
+                                    "$ref": "#/definitions/translationStrings"
+                                },
+                                "summon": {
+                                    "$ref": "#/definitions/translationStrings"
+                                },
+                                "evolution": {
+                                    "$ref": "#/definitions/translationStrings"
+                                },
+                                "affinity": {
+                                    "$ref": "#/definitions/translationStrings"
+                                },
+                                "fusion": {
+                                    "$ref": "#/definitions/translationStrings"
+                                }
+                            },
+                            "required": [
+                                "description",
+                                "summon",
+                                "evolution",
+                                "affinity",
+                                "fusion"
+                            ]
+                        }
+                    },
+                    "required": [
+                        "compendium_id",
+                        "rarity",
+                        "growth_pattern",
+                        "stats",
+                        "limitburst_id",
+                        "attack_count",
+                        "attack_frames",
+                        "effect_frames",
+                        "ability_slots",
+                        "magic_affinity",
+                        "element_resist",
+                        "status_resist",
+                        "physical_resist",
+                        "magical_resist",
+                        "awakening",
+                        "strings",
+                        "max_lb_drop"
+                    ]
+                }
+            },
+            "skills": {
+                "type": "array",
+                "items": {
+                    "type": "object",
+                    "properties": {
+                        "rarity": {
+                            "type": "integer"
+                        },
+                        "level": {
+                            "type": "integer"
+                        },
+                        "type": {
+                            "type": "string"
+                        },
+                        "id": {
+                            "type": "integer"
+                        }
+                    },
+                    "required": [
+                        "rarity",
+                        "level",
+                        "type",
+                        "id"
+                    ]
+                }
+            }
+        },
+        "required": [
+            "rarity_max",
+            "name",
+            "names",
+            "game_id",
+            "game",
+            "job_id",
+            "job",
+            "sex_id",
+            "sex",
+            "is_summonable",
+            "equip",
+            "rarity_min",
+            "TMR",
+            "entries"
+        ]
+    },
+    "definitions": {
+        "unitRarity": {
+            "type": "integer",
+            "title": "Unit Raritiy",
+            "description": "The rarity of all units varies from 1 to 6 (stars)",
+            "enum": [
+                1,
+                2,
+                3,
+                4,
+                5,
+                6
+            ]
+        },
+        "statValue": {
+            "type": "array",
+            "title": "Unit Stat Value",
+            "description": "Stat Value per rarity at [Minimum-Level, Maximum-Level, MaxLimitBreaker",
+            "additionalItems": false,
+            "maxItems": 3,
+            "minItems": 3,
+            "items": [
+                {
+                    "type": "integer",
+                    "title": "Stat value at minimum level"
+                },
+                {
+                    "type": "integer",
+                    "title": "Stat value at maximum level"
+                },
+                {
+                    "type": "integer",
+                    "title": "Maximum Limit Breaker"
+                }
+            ]
+        },
+        "frames": {
+            "type": "array",
+            "title": "Action Frames",
+            "description": "From the moment you press the action (Attack/Skill/Magic/LimitBurst), the frames in wich hits will trigger (Based on 60FPS)",
+            "minItems": 1,
+            "items": {
+                "type": "integer"
+            }
+        },
+        "elements": {
+            "type": "array",
+            "title": "Elements Array",
+            "description": "Array with Elements value (res%, atk %) [Fire, Ice, Lightning, Water, Wind, Earth, Light Dark] in that order",
+            "additionalItems": false,
+            "maxItems": 8,
+            "minItems": 8,
+            "items": [
+                {
+                    "type": "integer",
+                    "title": "Fire"
+                },
+                {
+                    "type": "integer",
+                    "title": "Ice"
+                },
+                {
+                    "type": "integer",
+                    "title": "Lightning"
+                },
+                {
+                    "type": "integer",
+                    "title": "Water"
+                },
+                {
+                    "type": "integer",
+                    "title": "Wind"
+                },
+                {
+                    "type": "integer",
+                    "title": "Earth"
+                },
+                {
+                    "type": "integer",
+                    "title": "Light"
+                },
+                {
+                    "type": "integer",
+                    "title": "Dark"
+                }
+            ]
+        },
+        "statuses": {
+            "type": "array",
+            "title": "Statuses Array",
+            "description": "Array with Statuses value (res%, atk %) [Poison, Blind, Sleep, Silence, Paralyze, Confuse, Disease, Stone/Petrify] in that order",
+            "additionalItems": false,
+            "maxItems": 8,
+            "minItems": 8,
+            "items": [
+                {
+                    "type": "integer",
+                    "title": "Poison"
+                },
+                {
+                    "type": "integer",
+                    "title": "Blind"
+                },
+                {
+                    "type": "integer",
+                    "title": "Sleep"
+                },
+                {
+                    "type": "integer",
+                    "title": "Silence"
+                },
+                {
+                    "type": "integer",
+                    "title": "Paralyze"
+                },
+                {
+                    "type": "integer",
+                    "title": "Confuse"
+                },
+                {
+                    "type": "integer",
+                    "title": "Disease"
+                },
+                {
+                    "type": "integer",
+                    "title": "Stone/Petrify"
+                }
+            ]
+        },
+        "translationStrings": {
+            "type": [
+                "array",
+                "null",
+                "object"
+            ],
+            "title": "Translations",
+            "description": "Array with translation strings to EN, JA, KO, FR, DE, ES",
+            "additionalItems": false,
+            "additionalProperties": false,
+            "maxItems": 6,
+            "minItems": 1,
+            "items": [
+                {
+                    "type": "string",
+                    "title": "English",
+                    "description": "English string"
+                },
+                {
+                    "type": "string",
+                    "title": "Japanese",
+                    "description": "Japanese String"
+                },
+                {
+                    "type": "string",
+                    "title": "Korean",
+                    "description": "Korean String"
+                },
+                {
+                    "type": "string",
+                    "title": "French",
+                    "description": "French string"
+                },
+                {
+                    "type": "string",
+                    "title": "Deutsch",
+                    "description": "Deutsch String"
+                },
+                {
+                    "type": "string",
+                    "title": "Spanish",
+                    "description": "Spanish string"
+                }
+            ],
+            "patternProperties": {
+                "^[0-9]+": {
+                    "type": [
+                        "null",
+                        "string"
+                    ],
+                    "title": "Translations",
+                    "description": "Matches any digit for tranlations [0 : EN, 1 : JA, 2 : KO, 3 : FR, 4 : DE, 5 : ES] and it's content as String"
+                }
+            }
+        }
+    }
+}
