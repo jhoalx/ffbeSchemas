@@ -11,11 +11,10 @@
                 "object"
             ],
             "title": "Translations",
-            "description": "Array with translation strings to EN, JA, KO, FR, DE, ES",
+            "description": "Array or Object with translation strings to EN, JA, KO, FR, DE, ES",
             "additionalItems": false,
             "additionalProperties": false,
             "maxItems": 6,
-            "minItems": 1,
             "items": [
                 {
                     "type": "string",
@@ -57,6 +56,18 @@
                     "title": "Translations",
                     "description": "Matches any digit for tranlations [0 : EN, 1 : JA, 2 : KO, 3 : FR, 4 : DE, 5 : ES] and it's content as String"
                 }
+            }
+        },
+        "frames": {
+            "type": "array",
+            "title": "Action Frames",
+            "description": "From the moment you press the action (Attack/Skill/Magic/LimitBurst), the frames in wich hits will trigger (Based on 60FPS)",
+            "minItems": 1,
+            "items": {
+                "type": [
+                    "array",
+                    "integer"
+                ]
             }
         }
     }

@@ -591,11 +591,11 @@
                             "title": "Basic Attack Hit count"
                         },
                         "attack_frames": {
-                            "$ref": "#/definitions/frames",
+                            "$ref": "schemaDefinitions.json#/definitions/frames",
                             "type": "array"
                         },
                         "effect_frames": {
-                            "$ref": "#/definitions/frames",
+                            "$ref": "schemaDefinitions.json#/definitions/frames",
                             "type": "array"
                         },
                         "max_lb_drop": {
@@ -801,15 +801,6 @@
                     "title": "Maximum Limit Breaker"
                 }
             ]
-        },
-        "frames": {
-            "type": "array",
-            "title": "Action Frames",
-            "description": "From the moment you press the action (Attack/Skill/Magic/LimitBurst), the frames in wich hits will trigger (Based on 60FPS)",
-            "minItems": 1,
-            "items": {
-                "type": "integer"
-            }
         },
         "elements": {
             "type": "array",

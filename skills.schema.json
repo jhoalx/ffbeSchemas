@@ -1,0 +1,203 @@
+﻿{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "type": "object",
+    "title": "Root Skill Schema Object",
+    "additionalProperties": false,
+    "patternProperties": {
+        "^[0-9]+": {
+            "type": "object",
+            "title": "Skill id",
+            "description": "Matches any id",
+            "additionalProperties": false,
+            "properties": {
+                "type": {
+                    "type": "string",
+                    "description": "Skill Type",
+                    "enum": [
+                        "MAGIC",
+                        "ABILITY"
+                    ]
+                },
+                "active": {
+                    "type": "boolean",
+                    "description": "Skil Active? False = Passive"
+                },
+                "usable_in_exploration": {
+                    "type": "boolean",
+                    "description": "Skill usable in exploration maps"
+                },
+                "name": {
+                    "type": "string",
+                    "title": "Skill Name"
+                },
+                "compendium_id": {
+                    "type": "integer",
+                    "description": "NO IDEA ON THIS"
+                },
+                "rarity": {
+                    "type": "integer",
+                    "description": "Skill Rarity Level",
+                    "enum": [
+                        1,
+                        2,
+                        3,
+                        4,
+                        5,
+                        6,
+                        7,
+                        8
+                    ]
+                },
+                "magic_type": {
+                    "type": "string",
+                    "enum": [
+                        "White",
+                        "Black",
+                        "Green"
+                    ]
+                },
+                "mp_cost": {
+                    "type": "integer"
+                },
+                "is_sealable": {
+                    "type": "boolean",
+                    "description": "Can the skill be sealed?"
+                },
+                "is_reflectable": {
+                    "type": "boolean",
+                    "description": "Can the skill be reflected?"
+                },
+                "attack_count": {
+                    "type": "array",
+                    "description": "Number of hits the skill will land (or fail)",
+                    "maxItems": 4,
+                    "items": {
+                        "type": "integer"
+                    }
+                },
+                "attack_frames": {
+                    "$ref": "schemaDefinitions.json#/definitions/frames"
+                },
+                "effect_frames": {
+                    "$ref": "schemaDefinitions.json#/definitions/frames"
+                },
+                "move_type": {
+                    "type": "integer",
+                    "description": "NO IDEA ON THIS"
+                },
+                "effect_type": {
+                    "type": "string",
+                    "enum": [
+                        "Default",
+                        "Revive",
+                        "Percentual DMG",
+                        "Drain HP",
+                        "Drain MP",
+                        "Instant KO",
+                        "Steal Item",
+                        "Steal Gold"
+                    ]
+                },
+                "attack_type": {
+                    "type": "string",
+                    "enum": [
+                        "Physical",
+                        "Magic",
+                        "Hybrid",
+                        "None",
+                        "Unknown"
+                    ]
+                },
+                "element_inflict": {
+                    "type": [
+                        "array",
+                        "null"
+                    ],
+                    "description": "Attack Element",
+                    "minItems": 1,
+                    "items": {
+                        "type": "string",
+                        "enum": [
+                            "Fire",
+                            "Ice",
+                            "Lightning",
+                            "Water",
+                            "Wind",
+                            "Earth",
+                            "Light",
+                            "Dark"
+                        ]
+                    }
+                },
+                "effects": {
+                    "type": "array",
+                    "description": "Effect Description",
+                    "minItems": 1,
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "effects_raw": {
+                    "type": "array",
+                    "title": "NO IDEA ON THIS",
+                    "items": {
+                        "type": "array"
+                    }
+                },
+                "unit_restriction": {
+                    "type": [
+                        "array",
+                        "null"
+                    ],
+                    "description": "Contains array wit unit id wich the item is exclusive to",
+                    "items": {
+                        "type": "integer"
+                    }
+                },
+                "icon": {
+                    "type": "string",
+                    "description": "internal game image  filename"
+                },
+                "strings": {
+                    "type": "object",
+                    "additionalProperties": false,
+                    "properties": {
+                        "name": {
+                            "$ref": "schemaDefinitions.json#/definitions/translationStrings"
+                        },
+                        "desc_short": {
+                            "$ref": "schemaDefinitions.json#/definitions/translationStrings"
+                        },
+                        "desc_long": {
+                            "$ref": "schemaDefinitions.json#/definitions/translationStrings"
+                        }
+                    },
+                    "required": [
+                        "name",
+                        "desc_short",
+                        "desc_long"
+                    ]
+                }
+            },
+            "required": [
+                "type",
+                "active",
+                "name",
+                "compendium_id",
+                "rarity",
+                "mp_cost",
+                "attack_count",
+                "attack_frames",
+                "effect_frames",
+                "move_type",
+                "effect_type",
+                "attack_type",
+                "element_inflict",
+                "effects",
+                "effects_raw",
+                "icon",
+                "strings"
+            ]
+        }
+    }
+}
