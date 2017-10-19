@@ -1,0 +1,63 @@
+﻿{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "type": "object",
+    "title": "Root Definitions Schema Object",
+    "additionalProperties": false,
+    "definitions": {
+        "translationStrings": {
+            "type": [
+                "array",
+                "null",
+                "object"
+            ],
+            "title": "Translations",
+            "description": "Array with translation strings to EN, JA, KO, FR, DE, ES",
+            "additionalItems": false,
+            "additionalProperties": false,
+            "maxItems": 6,
+            "minItems": 1,
+            "items": [
+                {
+                    "type": "string",
+                    "title": "English",
+                    "description": "English string"
+                },
+                {
+                    "type": "string",
+                    "title": "Japanese",
+                    "description": "Japanese String"
+                },
+                {
+                    "type": "string",
+                    "title": "Korean",
+                    "description": "Korean String"
+                },
+                {
+                    "type": "string",
+                    "title": "French",
+                    "description": "French string"
+                },
+                {
+                    "type": "string",
+                    "title": "Deutsch",
+                    "description": "Deutsch String"
+                },
+                {
+                    "type": "string",
+                    "title": "Spanish",
+                    "description": "Spanish string"
+                }
+            ],
+            "patternProperties": {
+                "^[0-9]+": {
+                    "type": [
+                        "null",
+                        "string"
+                    ],
+                    "title": "Translations",
+                    "description": "Matches any digit for tranlations [0 : EN, 1 : JA, 2 : KO, 3 : FR, 4 : DE, 5 : ES] and it's content as String"
+                }
+            }
+        }
+    }
+}

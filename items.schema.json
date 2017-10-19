@@ -1,0 +1,129 @@
+﻿{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "type": "object",
+    "title": "Root Item Schema Object",
+    "additionalProperties": false,
+    "patternProperties": {
+        "^[0-9+]": {
+            "type": "object",
+            "title": "Item id",
+            "description": "Matches all item id's",
+            "additionalProperties": false,
+            "properties": {
+                "name": {
+                    "type": "string",
+                    "title": "Item Name"
+                },
+                "type": {
+                    "type": "string",
+                    "title": "Item Type",
+                    "enum": [
+                        "Consumable",
+                        "Awakening",
+                        "4",
+                        "Item"
+                    ]
+                },
+                "compendium_id": {
+                    "type": "integer",
+                    "title": "Ingame Item id",
+                    "description": "internal item id"
+                },
+                "compendium_shown": {
+                    "type": "boolean",
+                    "description": "NO IDEA ON THIS"
+                },
+                "usable_in_combat": {
+                    "type": "boolean",
+                    "description": "Wether item can be used on combat"
+                },
+                "usable_in_exploration": {
+                    "type": "boolean",
+                    "description": "Wether item can be used for explorations"
+                },
+                "flags": {
+                    "type": "array",
+                    "description": "NO IDEA ON THIS",
+                    "items": {}
+                },
+                "carry_limit": {
+                    "type": "integer",
+                    "description": "How much can you bring to a mission"
+                },
+                "stack_size": {
+                    "type": "integer",
+                    "description": "Max item stack per slot"
+                },
+                "price_buy": {
+                    "type": "integer",
+                    "description": "buy item price at shops"
+                },
+                "price_sell": {
+                    "type": "integer",
+                    "description": "sell item price at shops"
+                },
+                "effects": {
+                    "type": [
+                        "array",
+                        "null"
+                    ],
+                    "description": "Effects Description",
+                    "items": {}
+                },
+                "effects_raw": {
+                    "type": [
+                        "array",
+                        "string"
+                    ],
+                    "description": "NO IDEA ON THIS",
+                    "items": {}
+                },
+                "icon": {
+                    "type": [
+                        "null",
+                        "string"
+                    ],
+                    "description": "Game's files item icon filename"
+                },
+                "strings": {
+                    "type": "object",
+                    "description": "Item Names and Descriptions Translations",
+                    "additionalProperties": false,
+                    "properties": {
+                        "names": {
+                            "$ref": "schemaDefinitions.json#/definitions/translationStrings"
+                        },
+                        "desc_short": {
+                            "$ref": "schemaDefinitions.json#/definitions/translationStrings"
+                        },
+                        "desc_long": {
+                            "$ref": "schemaDefinitions.json#/definitions/translationStrings"
+                        }
+                    },
+                    "required": [
+                        "names",
+                        "desc_short",
+                        "desc_long"
+                    ]
+                }
+            },
+            "required": [
+                "name",
+                "type",
+                "compendium_id",
+                "compendium_shown",
+                "usable_in_combat",
+                "usable_in_exploration",
+                "flags",
+                "carry_limit",
+                "stack_size",
+                "price_buy",
+                "price_sell",
+                "effects",
+                "effects_raw",
+                "icon",
+                "strings"
+            ]
+        }
+    }
+}

@@ -23,7 +23,7 @@
                 "description": "Default Base Name for unit"
             },
             "names": {
-                "$ref": "#/definitions/translationStrings",
+                "$ref": "schemaDefinitions.json#/definitions/translationStrings",
                 "title": "Unit's translated names"
             },
             "game_id": {
@@ -237,7 +237,7 @@
                     903,
                     9001,
                     9002,
-                    9003, 
+                    9003,
                     9004,
                     9005,
                     9006,
@@ -674,19 +674,19 @@
                             "additionalProperties": false,
                             "properties": {
                                 "description": {
-                                    "$ref": "#/definitions/translationStrings"
+                                    "$ref": "schemaDefinitions.json#/definitions/translationStrings"
                                 },
                                 "summon": {
-                                    "$ref": "#/definitions/translationStrings"
+                                    "$ref": "schemaDefinitions.json#/definitions/translationStrings"
                                 },
                                 "evolution": {
-                                    "$ref": "#/definitions/translationStrings"
+                                    "$ref": "schemaDefinitions.json#/definitions/translationStrings"
                                 },
                                 "affinity": {
-                                    "$ref": "#/definitions/translationStrings"
+                                    "$ref": "schemaDefinitions.json#/definitions/translationStrings"
                                 },
                                 "fusion": {
-                                    "$ref": "#/definitions/translationStrings"
+                                    "$ref": "schemaDefinitions.json#/definitions/translationStrings"
                                 }
                             },
                             "required": [
@@ -721,8 +721,11 @@
             },
             "skills": {
                 "type": "array",
+                "title": "Unit skills",
+                "description": "Optional Objects Array containing required rarity, level, type of skill and skill id",
                 "items": {
                     "type": "object",
+                    "additionalProperties": false,
                     "properties": {
                         "rarity": {
                             "type": "integer"
@@ -891,61 +894,6 @@
                     "title": "Stone/Petrify"
                 }
             ]
-        },
-        "translationStrings": {
-            "type": [
-                "array",
-                "null",
-                "object"
-            ],
-            "title": "Translations",
-            "description": "Array with translation strings to EN, JA, KO, FR, DE, ES",
-            "additionalItems": false,
-            "additionalProperties": false,
-            "maxItems": 6,
-            "minItems": 1,
-            "items": [
-                {
-                    "type": "string",
-                    "title": "English",
-                    "description": "English string"
-                },
-                {
-                    "type": "string",
-                    "title": "Japanese",
-                    "description": "Japanese String"
-                },
-                {
-                    "type": "string",
-                    "title": "Korean",
-                    "description": "Korean String"
-                },
-                {
-                    "type": "string",
-                    "title": "French",
-                    "description": "French string"
-                },
-                {
-                    "type": "string",
-                    "title": "Deutsch",
-                    "description": "Deutsch String"
-                },
-                {
-                    "type": "string",
-                    "title": "Spanish",
-                    "description": "Spanish string"
-                }
-            ],
-            "patternProperties": {
-                "^[0-9]+": {
-                    "type": [
-                        "null",
-                        "string"
-                    ],
-                    "title": "Translations",
-                    "description": "Matches any digit for tranlations [0 : EN, 1 : JA, 2 : KO, 3 : FR, 4 : DE, 5 : ES] and it's content as String"
-                }
-            }
         }
     }
 }
