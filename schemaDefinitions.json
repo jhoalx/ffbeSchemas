@@ -69,6 +69,53 @@
                     "integer"
                 ]
             }
+        },
+        "actionElements": {
+            "type": [
+                "array",
+                "null",
+                "object"
+            ],
+            "description": "Contains an Array with the elements involved in action (Wether is inflict, resist, etc)",
+            "additionalProperties": false,
+            "maxItems": 8,
+            "minItems": 0,
+            "items": {
+                "type": "string",
+                "enum": [
+                    "Fire",
+                    "Ice",
+                    "Lightning",
+                    "Water",
+                    "Wind",
+                    "Earth",
+                    "Light",
+                    "Dark"
+                ]
+            },
+            "patternProperties": {
+                "(Fire|Ice|Lightning|Water|Wind|Earth|Light|Dark)": {
+                    "type": "integer",
+                    "description": "Matches any of the element and must have a integer value between 0 and 100",
+                    "maximum": 100,
+                    "minimum": -100
+                }
+            }
+        },
+        "actionStatuses": {
+            "type": [
+                "null",
+                "object"
+            ],
+            "additionalProperties": false,
+            "patternProperties": {
+                "(Poison|Blind|Sleep|Silence|Paralyze|Confusion|Disease|Petrify|Death)": {
+                    "type": "integer",
+                    "description": "Matches any of the element and must have a integer value between 0 and 100",
+                    "maximum": 100,
+                    "minimum": -100
+                }
+            }
         }
     }
 }

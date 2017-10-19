@@ -14,3 +14,8 @@ the idea is to create schema descriptors/validators for his/her repository, usin
 >- validating client-submitted data
 
 Taken from json-schema.org
+
+
+------------
+
+If you find any formal semantics error or anything not-so-well described, please let me know.

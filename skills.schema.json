@@ -109,25 +109,7 @@
                     ]
                 },
                 "element_inflict": {
-                    "type": [
-                        "array",
-                        "null"
-                    ],
-                    "description": "Attack Element",
-                    "minItems": 1,
-                    "items": {
-                        "type": "string",
-                        "enum": [
-                            "Fire",
-                            "Ice",
-                            "Lightning",
-                            "Water",
-                            "Wind",
-                            "Earth",
-                            "Light",
-                            "Dark"
-                        ]
-                    }
+                    "$ref": "schemaDefinitions.json#/definitions/actionElements"
                 },
                 "effects": {
                     "type": "array",

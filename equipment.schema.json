@@ -1,0 +1,190 @@
+﻿{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "type": "object",
+    "title": "Root Equipment schema Object",
+    "additionalProperties": false,
+    "patternProperties": {
+        "^[0-9]+": {
+            "type": "object",
+            "title": "Equipment Object Id",
+            "description": "Matches any equipment id",
+            "additionalProperties": false,
+            "properties": {
+                "name": {
+                    "type": "string"
+                },
+                "compendium_id": {
+                    "type": "integer"
+                },
+                "compendium_shown": {
+                    "type": "boolean"
+                },
+                "rarity": {
+                    "type": "integer"
+                },
+                "type_id": {
+                    "type": "integer"
+                },
+                "type": {
+                    "type": "string"
+                },
+                "slot_id": {
+                    "type": "integer"
+                },
+                "slot": {
+                    "type": "string"
+                },
+                "is_twohanded": {
+                    "type": "boolean"
+                },
+                "dmg_variance": {
+                    "type": [
+                        "array",
+                        "null"
+                    ],
+                    "items": {
+                        "type": "number"
+                    }
+                },
+                "accuracy": {
+                    "type": "integer"
+                },
+                "requirements": {
+                    "type": [
+                        "array",
+                        "null"
+                    ],
+                    "items": {
+                        "type": [
+                            "integer",
+                            "string"
+                        ]
+                    }
+                },
+                "skills": {
+                    "type": [
+                        "array",
+                        "null"
+                    ],
+                    "additionalItems": false,
+                    "items": {
+                        "type": "integer"
+                    }
+                },
+                "effects": {
+                    "type": [
+                        "array",
+                        "null"
+                    ],
+                    "additionalItems": false,
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "stats": {
+                    "type": "object",
+                    "additionalProperties": false,
+                    "properties": {
+                        "HP": {
+                            "type": "integer"
+                        },
+                        "MP": {
+                            "type": "integer"
+                        },
+                        "ATK": {
+                            "type": "integer"
+                        },
+                        "DEF": {
+                            "type": "integer"
+                        },
+                        "MAG": {
+                            "type": "integer"
+                        },
+                        "SPR": {
+                            "type": "integer"
+                        },
+                        "element_resist": {
+                            "$ref": "schemaDefinitions.json#/definitions/actionElements"
+                        },
+                        "element_inflict": {
+                            "$ref": "schemaDefinitions.json#/definitions/actionElements"
+                        },
+                        "status_resist": {
+                            "$ref": "schemaDefinitions.json#/definitions/actionStatuses"
+                        },
+                        "status_inflict": {
+                            "$ref": "schemaDefinitions.json#/definitions/actionStatuses"
+                        }
+                    },
+                    "required": [
+                        "HP",
+                        "MP",
+                        "ATK",
+                        "DEF",
+                        "MAG",
+                        "SPR",
+                        "element_resist",
+                        "element_inflict",
+                        "status_resist",
+                        "status_inflict"
+                    ]
+                },
+                "price_buy": {
+                    "type": "integer",
+                    "description": "Equipment Buy Price at shops"
+                },
+                "price_sell": {
+                    "type": "integer",
+                    "description": "Equipment sell price at shops"
+                },
+                "icon": {
+                    "type": [
+                        "null",
+                        "string"
+                    ],
+                    "description": "Internal game filename for equipment icon"
+                },
+                "strings": {
+                    "type": "object",
+                    "additionalProperties": false,
+                    "properties": {
+                        "name": {
+                            "$ref": "schemaDefinitions.json#/definitions/translationStrings"
+                        },
+                        "desc_short": {
+                            "$ref": "schemaDefinitions.json#/definitions/translationStrings"
+                        },
+                        "desc_long": {
+                            "$ref": "schemaDefinitions.json#/definitions/translationStrings"
+                        }
+                    },
+                    "required": [
+                        "name",
+                        "desc_short",
+                        "desc_long"
+                    ]
+                }
+            },
+            "required": [
+                "name",
+                "compendium_shown",
+                "rarity",
+                "type_id",
+                "type",
+                "slot_id",
+                "is_twohanded",
+                "slot",
+                "dmg_variance",
+                "accuracy",
+                "requirements",
+                "skills",
+                "effects",
+                "stats",
+                "price_buy",
+                "price_sell",
+                "icon",
+                "strings"
+            ]
+        }
+    }
+}
