@@ -1,0 +1,92 @@
+﻿{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "type": "object",
+    "title": "Root materia object schema",
+    "additionalProperties": false,
+    "patternProperties": {
+        "^[0-9]+": {
+            "type": "object",
+            "title": "Materia object schema",
+            "description": "matches any materia id",
+            "additionalProperties": false,
+            "properties": {
+                "name": {
+                    "type": "string",
+                    "title": "Materia Name"
+                },
+                "compendium_id": {
+                    "type": "integer",
+                    "description": "NO IDEA ON THIS"
+                },
+                "compendium_shown": {
+                    "type": "boolean",
+                    "description": "NO IDEA ON THIS"
+                },
+                "skills": {
+                    "type": "array",
+                    "description": "Array with the id's of granted skills",
+                    "additionalItems": false,
+                    "items": {
+                        "type": "integer"
+                    }
+                },
+                "effects": {
+                    "type": "array",
+                    "description": "Materia effect description",
+                    "additionalItems": false,
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "unique": {
+                    "type": "boolean",
+                    "description": "True = Materia effect can not be stacked"
+                },
+                "price_buy": {
+                    "type": "integer",
+                    "description": "materia buy price at shops"
+                },
+                "price_sell": {
+                    "type": "integer",
+                    "description": "materia sell price at shops"
+                },
+                "icon": {
+                    "type": "string",
+                    "description": "Internal game icon filename"
+                },
+                "strings": {
+                    "type": "object",
+                    "additionalProperties": false,
+                    "properties": {
+                        "names": {
+                            "$ref": "schemaDefinitions.json#/definitions/translationStrings"
+                        },
+                        "desc_short": {
+                            "$ref": "schemaDefinitions.json#/definitions/translationStrings"
+                        },
+                        "desc_long": {
+                            "$ref": "schemaDefinitions.json#/definitions/translationStrings"
+                        }
+                    },
+                    "required": [
+                        "names",
+                        "desc_short",
+                        "desc_long"
+                    ]
+                }
+            },
+            "required": [
+                "name",
+                "compendium_id",
+                "compendium_shown",
+                "skills",
+                "effects",
+                "unique",
+                "price_buy",
+                "price_sell",
+                "icon",
+                "strings"
+            ]
+        }
+    }
+}
