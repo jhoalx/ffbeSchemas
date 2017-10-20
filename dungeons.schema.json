@@ -1,0 +1,138 @@
+﻿{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "type": "object",
+    "title": "Root dungeons schema object",
+    "additionalProperties": false,
+    "patternProperties": {
+        "^[0-9]+": {
+            "type": "object",
+            "title": "Dungeon id",
+            "additionalProperties": false,
+            "properties": {
+                "name": {
+                    "type": "string",
+                    "title": "Dungeon Name"
+                },
+                "region_id": {
+                    "type": "string",
+                    "enum": ["11","12","13","14","15","16","17","18", "21"]
+                },
+                "subregion_id": {
+                    "type": "string"
+                },
+                "type": {
+                    "type": "string",
+                    "enum": ["Story", "Vortex"]
+                },
+                "position": {
+                    "type": "array",
+                    "additionalItems": false,
+                    "items": {
+                        "type": "integer"
+                    }
+                },
+                "icon_id": {
+                    "type": "integer"
+                },
+                "missions": {
+                    "type": "object",
+                    "additionalProperties": false,
+                    "patternProperties": {
+                        "^[0-9]+": {
+                            "type": "object",
+                            "title": "Mission id",
+                            "description": "matches any mission id",
+                            "additionalProperties": false,
+                            "properties": {
+                                "name": {
+                                    "type": [
+                                        "null",
+                                        "string"
+                                    ]
+                                },
+                                "type": {
+                                    "type": "string"
+                                },
+                                "wave_count": {
+                                    "type": "integer"
+                                },
+                                "cost_type": {
+                                    "type": "string"
+                                },
+                                "cost": {
+                                    "type": "integer"
+                                },
+                                "flags": {
+                                    "type": "object",
+                                    "additionalProperties": false,
+                                    "properties": {
+                                        "continue_allowed": {
+                                            "type": "boolean"
+                                        },
+                                        "escape_allowed": {
+                                            "type": "boolean"
+                                        }
+                                    },
+                                    "required": [
+                                        "continue_allowed",
+                                        "escape_allowed"
+                                    ]
+                                },
+                                "reward": {
+                                    "type": [
+                                        "array",
+                                        "null"
+                                    ],
+                                    "additionalItems": false,
+                                    "items": {
+                                        "type": [
+                                            "string",
+                                            "integer"
+                                        ]
+                                    }
+                                },
+                                "gil": {
+                                    "type": "integer"
+                                },
+                                "exp": {
+                                    "type": "integer"
+                                },
+                                "challenges": {
+                                    "type": "array",
+                                    "additionalItems": false,
+                                    "items": {
+                                        "type": "object",
+                                        "additionalProperties": false,
+                                        "properties": {
+                                            "condition_str": {
+                                                "type": "string"
+                                            },
+                                            "condition_raw": {
+                                                "type": "string"
+                                            },
+                                            "reward": {
+                                                "type": "array"
+                                            }
+                                        }
+                                    }
+                                }
+                            },
+                            "required": [
+                                "name",
+                                "type",
+                                "wave_count",
+                                "cost_type",
+                                "cost",
+                                "flags",
+                                "reward",
+                                "gil",
+                                "exp",
+                                "challenges"
+                            ]
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
