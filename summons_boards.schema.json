@@ -1,0 +1,56 @@
+﻿{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "type": "object",
+    "title": "NO IDEA ON THIS",
+    "description": "TO BE CONFIRMED AND DESCRIBED",
+    "additionalProperties": false,
+    "patternProperties": {
+        "^[0-9]+": {
+            "type": "object",
+            "additionalProperties": false,
+            "patternProperties": {
+                "^[0-9]+": {
+                    "type": "object",
+                    "additionalProperties": false,
+                    "properties": {
+                        "parent_node_id": {
+                            "type": [
+                                "integer",
+                                "null"
+                            ]
+                        },
+                        "reward": {
+                            "type": [
+                                "array",
+                                "null"
+                            ],
+                            "additionalItems": false,
+                            "items": {
+                                "type": [
+                                    "string",
+                                    "integer"
+                                ]
+                            }
+                        },
+                        "position": {
+                            "type": "array",
+                            "additionalItems": false,
+                            "items": {
+                                "type": "integer"
+                            }
+                        },
+                        "cost": {
+                            "type": "integer"
+                        }
+                    },
+                    "required": [
+                        "parent_node_id",
+                        "reward",
+                        "position",
+                        "cost"
+                    ]
+                }
+            }
+        }
+    }
+}

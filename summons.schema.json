@@ -1,0 +1,198 @@
+﻿{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "type": "object",
+    "additionalProperties": false,
+    "patternProperties": {
+        "^\\d{1,2}": {
+            "type": "object",
+            "title": "Esper id",
+            "additionalProperties": false,
+            "properties": {
+                "names": {
+                    "$ref": "schemaDefinitions.json#/definitions/translationStrings"
+                },
+                "image": {
+                    "type": "string",
+                    "description": "esper image filename"
+                },
+                "icon": {
+                    "type": "string",
+                    "description": "esper icon filename"
+                },
+                "skill": {
+                    "type": "object",
+                    "additionalProperties": false,
+                    "patternProperties": {
+                        "^[0-9]+": {
+                            "type": "object",
+                            "title": "Skill id",
+                            "description": "matches any skill id",
+                            "additionalProperties": false,
+                            "properties": {
+                                "effects": {
+                                    "type": "array",
+                                    "title": "Effect Description",
+                                    "additionalItems": false,
+                                    "items": {
+                                        "type": "string"
+                                    }
+                                },
+                                "effects_raw": {
+                                    "type": "array",
+                                    "description": "NO IDEA ON THIS",
+                                    "additionalItems": false,
+                                    "items": {
+                                        "type": "array",
+                                        "additionalItems": false,
+                                        "items": {
+                                            "type": [
+                                                "integer",
+                                                "array"
+                                            ],
+                                            "additionalItems": false,
+                                            "items": {
+                                                "type": "integer"
+                                            }
+                                        }
+                                    }
+                                },
+                                "strings": {
+                                    "type": "object",
+                                    "title": "Skill name and description strings",
+                                    "additionalProperties": false,
+                                    "properties": {
+                                        "name": {
+                                            "$ref": "schemaDefinitions.json#/definitions/translationStrings"
+                                        },
+                                        "desc": {
+                                            "$ref": "schemaDefinitions.json#/definitions/translationStrings"
+                                        }
+                                    },
+                                    "required": [
+                                        "name",
+                                        "desc"
+                                    ]
+                                }
+                            },
+                            "required": [
+                                "strings",
+                                "effects_raw",
+                                "effects"
+                            ]
+                        }
+                    }
+                },
+                "color": {
+                    "type": [
+                        "null",
+                        "object"
+                    ],
+                    "title": "Esper Color Affinity",
+                    "additionalProperties": false,
+                    "patternProperties": {
+                        "(Blue|Green|Red|Violet|White|Black|Orange|Yellow)": {
+                            "type": "number"
+                        }
+                    }
+                },
+                "entries": {
+                    "type": "array",
+                    "additionalItems": false,
+                    "items": {
+                        "type": "object",
+                        "additionalProperties": false,
+                        "properties": {
+                            "stats": {
+                                "type": "object",
+                                "additionalProperties": false,
+                                "properties": {
+                                    "HP": {
+                                        "type": "array",
+                                        "additionalItems": false,
+                                        "items": {
+                                            "type": "integer"
+                                        }
+                                    },
+                                    "MP": {
+                                        "type": "array",
+                                        "additionalItems": false,
+                                        "items": {
+                                            "type": "integer"
+                                        }
+                                    },
+                                    "ATK": {
+                                        "type": "array",
+                                        "additionalItems": false,
+                                        "items": {
+                                            "type": "integer"
+                                        }
+                                    },
+                                    "DEF": {
+                                        "type": "array",
+                                        "additionalItems": false,
+                                        "items": {
+                                            "type": "integer"
+                                        }
+                                    },
+                                    "MAG": {
+                                        "type": "array",
+                                        "additionalItems": false,
+                                        "items": {
+                                            "type": "integer"
+                                        }
+                                    },
+                                    "SPR": {
+                                        "type": "array",
+                                        "additionalItems": false,
+                                        "items": {
+                                            "type": "integer"
+                                        }
+                                    }
+                                },
+                                "required": [
+                                    "HP",
+                                    "MP",
+                                    "ATK",
+                                    "DEF",
+                                    "MAG",
+                                    "SPR"
+                                ]
+                            },
+                            "element_resist": {
+                                "type": "array",
+                                "additionalItems": false,
+                                "items": {
+                                    "type": "integer"
+                                }
+                            },
+                            "status_resist": {
+                                "type": "array",
+                                "additionalItems": false,
+                                "items": {
+                                    "type": "integer"
+                                }
+                            },
+                            "growth_pattern": {
+                                "type": "integer"
+                            }
+                        },
+                        "required": [
+                            "stats",
+                            "element_resist",
+                            "status_resist",
+                            "growth_pattern"
+                        ]
+                    }
+                }
+            },
+            "required": [
+                "names",
+                "image",
+                "icon",
+                "skill",
+                "color",
+                "entries"
+            ]
+        }
+    }
+}

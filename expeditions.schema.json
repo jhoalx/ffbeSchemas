@@ -1,0 +1,248 @@
+﻿{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "type": "object",
+    "title": "Root Expeditions Schema Object",
+    "additionalProperties": false,
+    "patternProperties": {
+        "^[0-9]+": {
+            "type": "object",
+            "title": "Expedeition id",
+            "description": "Matches any expedition id",
+            "additionalProperties": false,
+            "properties": {
+                "name": {
+                    "type": "string",
+                    "title": "Expedition name"
+                },
+                "type": {
+                    "type": "integer",
+                    "title": "Expedition Type",
+                    "description": "NO IDEA ON THE VALUE"
+                },
+                "cost": {
+                    "type": "integer",
+                    "title": "Gil Expedition Cost"
+                },
+                "rank": {
+                    "type": "string",
+                    "description": "Esxpedition Rank"
+                },
+                "difficulty": {
+                    "type": "integer",
+                    "description": "Expedition difficulty"
+                },
+                "duration": {
+                    "type": "integer",
+                    "title": "Expedition Duration",
+                    "description": "Expedition duration in seconds"
+                },
+                "units": {
+                    "type": "integer",
+                    "title": "Units expeditions quantity",
+                    "description": "How much units can go into this expedition"
+                },
+                "required": {
+                    "type": [
+                        "null",
+                        "string"
+                    ],
+                    "title": "Required Unit",
+                    "description": "Name of required unit for expedition"
+                },
+                "next_id": {
+                    "type": [
+                        "integer",
+                        "null"
+                    ],
+                    "title": "Expedition chain, next expedition id"
+                },
+                "reward": {
+                    "type": "object",
+                    "title": "Expedition Reward",
+                    "additionalProperties": false,
+                    "properties": {
+                        "type": {
+                            "type": "string",
+                            "title": "Expedition Reward Type"
+                        },
+                        "id": {
+                            "type": "string",
+                            "title": "Reward id"
+                        },
+                        "name": {
+                            "type": "string",
+                            "title": "Reward Name"
+                        },
+                        "amount": {
+                            "type": "string",
+                            "title": "Reward Amount"
+                        }
+                    },
+                    "required": [
+                        "type",
+                        "id",
+                        "name",
+                        "amount"
+                    ]
+                },
+                "relics": {
+                    "type": "integer",
+                    "title": "Expedition Relics obtained"
+                },
+                "exp_levels": {
+                    "type": "array",
+                    "title": "unit experience granted",
+                    "description": "only one object item",
+                    "additionalItems": false,
+                    "items": {
+                        "type": "integer"
+                    }
+                },
+                "unit_bonus": {
+                    "type": "object",
+                    "title": "unit requirements for bunus completion chance",
+                    "additionalProperties": false,
+                    "properties": {
+                        "type": {
+                            "type": "string",
+                            "title": "Bonus requirement type",
+                            "description": "Type of requirement for bonus",
+                            "enum": [
+                                "equipable",
+                                "White magic",
+                                "Black magic",
+                                "Green magic",
+                                "game"
+                            ]
+                        },
+                        "value": {
+                            "type": [
+                                "integer",
+                                "string"
+                            ],
+                            "title": "Bonus requirement value"
+                        },
+                        "bonus": {
+                            "type": "integer",
+                            "title": "Bonus completion chance percent"
+                        }
+                    },
+                    "required": [
+                        "type",
+                        "value",
+                        "bonus"
+                    ]
+                },
+                "unit_bonus_max": {
+                    "type": "integer",
+                    "title": "Maximum completion chance bonus per unit"
+                },
+                "item_bonus": {
+                    "type": [
+                        "array",
+                        "null"
+                    ],
+                    "title": "Item bonus completion chance",
+                    "additionalItems": false,
+                    "items": {
+                        "type": "object",
+                        "additionalProperties": false,
+                        "properties": {
+                            "id": {
+                                "type": "integer",
+                                "title": "Item id"
+                            },
+                            "name": {
+                                "type": "string",
+                                "description": "item name"
+                            },
+                            "amount": {
+                                "type": "integer",
+                                "description": "item amount"
+                            },
+                            "bonus": {
+                                "type": "integer",
+                                "description": "bonus completion chance granted"
+                            }
+                        },
+                        "required": [
+                            "id",
+                            "name",
+                            "amount",
+                            "bonus"
+                        ]
+                    }
+                },
+                "stat_bonus": {
+                    "type": "object",
+                    "description": "this stats grant bonus, math envolved TO BE CONFIRMED",
+                    "additionalProperties": false,
+                    "properties": {
+                        "HP": {
+                            "type": "integer"
+                        },
+                        "MP": {
+                            "type": "integer"
+                        },
+                        "ATK": {
+                            "type": "integer"
+                        },
+                        "DEF": {
+                            "type": "integer"
+                        },
+                        "MAG": {
+                            "type": "integer"
+                        },
+                        "SPR": {
+                            "type": "integer"
+                        }
+                    },
+                    "required": [
+                        "HP",
+                        "MP",
+                        "ATK",
+                        "DEF",
+                        "MAG",
+                        "SPR"
+                    ]
+                },
+                "strings": {
+                    "type": "object",
+                    "description": "Expedition Translations",
+                    "additionalProperties": false,
+                    "properties": {
+                        "name": {
+                            "$ref": "schemaDefinitions.json#/definitions/translationStrings"
+                        },
+                        "desc": {
+                            "$ref": "schemaDefinitions.json#/definitions/translationStrings"
+                        }
+                    },
+                    "required": [
+                        "name",
+                        "desc"
+                    ]
+                }
+            },
+            "required": [
+                "name",
+                "type",
+                "cost",
+                "rank",
+                "difficulty",
+                "duration",
+                "units",
+                "required",
+                "next_id",
+                "reward",
+                "relics",
+                "exp_levels",
+                "unit_bonus",
+                "unit_bonus_max",
+                "item_bonus",
+                "stat_bonus",
+                "strings"
+            ]
+        }
+    }
+}

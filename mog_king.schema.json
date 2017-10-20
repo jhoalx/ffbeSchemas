@@ -1,0 +1,54 @@
+﻿{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "type": "object",
+    "title": "Mog king Root schema object",
+    "additionalProperties": false,
+    "patternProperties": {
+        "^\\S*": {
+            "type": "array",
+            "title": "Mog king farmable item name",
+            "description": "Matches any item name",
+            "items": {
+                "type": "object",
+                "title": "Reward list objects",
+                "additionalProperties": false,
+                "properties": {
+                    "name": {
+                        "type": "string",
+                        "description": "Reward name"
+                    },
+                    "reward_type": {
+                        "type": "string",
+                        "description": "Reward Type",
+                        "enum": [
+                            "ITEM",
+                            "MATERIA",
+                            "EQUIP",
+                            "UNIT",
+                            "RECIPE",
+                            "KEYITEM"
+                        ]
+                    },
+                    "reward_id": {
+                        "type": "integer"
+                    },
+                    "price": {
+                        "type": "integer",
+                        "description": "Reward exchange price"
+                    },
+                    "amount": {
+                        "type": "integer",
+                        "description": "Maximum quantity available"
+                    }
+                },
+                "required": [
+                    "name",
+                    "reward_type",
+                    "reward_id",
+                    "price",
+                    "amount"
+                ]
+            }
+        }
+    }
+}

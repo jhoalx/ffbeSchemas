@@ -1,0 +1,61 @@
+﻿{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "type": "object",
+    "title": "Root recipe schema object",
+    "additionalProperties": false,
+    "patternProperties": {
+        "^[0-9]+": {
+            "type": "object",
+            "title": "Matches any recipe id",
+            "additionalProperties": false,
+            "properties": {
+                "name": {
+                    "type": "string",
+                    "title": "Recipe name"
+                },
+                "compendium_id": {
+                    "type": "integer",
+                    "description": "NO IDEA ON THIS"
+                },
+                "compendium_shown": {
+                    "type": "boolean",
+                    "description": "NO IDEA ON THIS"
+                },
+                "item": {
+                    "type": "string",
+                    "description": "Crafted item"
+                },
+                "time": {
+                    "type": "integer",
+                    "description": "Crafting time in seconds (used before crafting time was removed fom the game)"
+                },
+                "mats": {
+                    "type": "object",
+                    "description": "Materials id's and quantity",
+                    "additionalProperties": false,
+                    "patternProperties": {
+                        "[0-9]?[0-9]?:[0-9]+": {
+                            "type": "integer"
+                        }
+                    }
+                },
+                "count": {
+                    "type": "integer",
+                    "description": "How much will be produced? TO BE CONFIRMED, Every single recipy has this value set to 1 (maybe for future multi crafting implementation)",
+                    "enum": [
+                        1
+                    ]
+                }
+            },
+            "required": [
+                "name",
+                "compendium_id",
+                "compendium_shown",
+                "item",
+                "time",
+                "mats",
+                "count"
+            ]
+        }
+    }
+}

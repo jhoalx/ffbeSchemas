@@ -1,0 +1,88 @@
+﻿{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "type": "object",
+    "title": "Root Enhancements Schema Object",
+    "additionalProperties": false,
+    "patternProperties": {
+        "^[0-9]+": {
+            "type": "object",
+            "title": "Enchancement id",
+            "description": "Matches any enhancement id",
+            "additionalProperties": false,
+            "properties": {
+                "name": {
+                    "type": "string",
+                    "title": "Skill name",
+                    "description": "Skill to enhance name"
+                },
+                "skill_id_old": {
+                    "type": "integer",
+                    "title": "Skill id before enhncement"
+                },
+                "skill_id_new": {
+                    "type": "integer",
+                    "title": "Skill id after encancement"
+                },
+                "cost": {
+                    "type": "object",
+                    "title": "Enhancement cost",
+                    "additionalProperties": false,
+                    "properties": {
+                        "gil": {
+                            "type": "integer",
+                            "title": "gil enhancement cost"
+                        },
+                        "materials": {
+                            "type": "object",
+                            "title": "enhancement required materials",
+                            "additionalProperties": false,
+                            "patternProperties": {
+                                "^[0-9]+": {
+                                    "type": "integer",
+                                    "description": "Matches any material id and required quantity"
+                                }
+                            }
+                        }
+                    },
+                    "required": [
+                        "gil",
+                        "materials"
+                    ]
+                },
+                "units": {
+                    "type": "array",
+                    "description": "Units that can have the skill enhanced",
+                    "additionalItems": false,
+                    "items": {
+                        "type": "integer"
+                    }
+                },
+                "strings": {
+                    "type": "object",
+                    "description": "Enhancement translations",
+                    "additionalProperties": false,
+                    "properties": {
+                        "names": {
+                            "$ref": "schemaDefinitions.json#/definitions/translationStrings"
+                        },
+                        "description": {
+                            "$ref": "schemaDefinitions.json#/definitions/translationStrings"
+                        }
+                    },
+                    "required": [
+                        "names",
+                        "description"
+                    ]
+                }
+            },
+            "required": [
+                "name",
+                "strings",
+                "units",
+                "cost",
+                "skill_id_new",
+                "skill_id_old"
+            ]
+        }
+    }
+}
