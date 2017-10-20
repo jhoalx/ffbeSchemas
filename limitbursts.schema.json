@@ -1,0 +1,161 @@
+﻿{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "type": "object",
+    "title": "Limitburst root schema object",
+    "additionalProperties": false,
+    "patternProperties": {
+        "^[0-9]+": {
+            "type": "object",
+            "title": "Limitburst Object",
+            "description": "Matches any limitburst id",
+            "additionalProperties": false,
+            "properties": {
+                "name": {
+                    "type": "string",
+                    "description": "Limitburst name"
+                },
+                "cost": {
+                    "type": "integer",
+                    "title": "To confirm",
+                    "description": "Every single limitburst has this value = 0 at the moment of writing this file",
+                    "maximum": 0,
+                    "minimum": 0
+                },
+                "attack_count": {
+                    "type": "array",
+                    "description": "how many times the hits will land (or fail)",
+                    "additionalItems": false,
+                    "items": {
+                        "type": "integer"
+                    }
+                },
+                "attack_frames": {
+                    "$ref": "schemaDefinitions.json#/definitions/frames"
+                },
+                "effect_frames": {
+                    "$ref": "schemaDefinitions.json#/definitions/frames"
+                },
+                "move_type": {
+                    "type": "integer",
+                    "description": "NO IDEA ON THIS"
+                },
+                "damage_type": {
+                    "type": "string",
+                    "enum": [
+                        "Physical",
+                        "Magic",
+                        "Hybrid",
+                        "None"
+                    ]
+                },
+                "element_inflict": {
+                    "$ref": "schemaDefinitions.json#/definitions/actionElements"
+                },
+                "levels": {
+                    "type": "integer"
+                },
+                "min_level": {
+                    "type": "object",
+                    "additionalProperties": false,
+                    "properties": {
+                        "cost": {
+                            "type": "integer"
+                        },
+                        "effects": {
+                            "type": "array",
+                            "additionalItems": false,
+                            "items": {
+                                "type": "string"
+                            }
+                        },
+                        "effects_raw": {
+                            "type": [
+                                "array",
+                                "string"
+                            ],
+                            "description": "NO IDEA ON THIS",
+                            "additionalItems": false,
+                            "items": {
+                                "type": [
+                                    "array",
+                                    "integer",
+                                    "string"
+                                ]
+                            }
+                        }
+                    },
+                    "required": [
+                        "cost",
+                        "effects",
+                        "effects_raw"
+                    ]
+                },
+                "max_level": {
+                    "type": "object",
+                    "additionalProperties": false,
+                    "properties": {
+                        "cost": {
+                            "type": "integer"
+                        },
+                        "effects": {
+                            "type": "array",
+                            "additionalItems": false,
+                            "items": {
+                                "type": "string"
+                            }
+                        },
+                        "effects_raw": {
+                            "type": [
+                                "array",
+                                "string"
+                            ],
+                            "additionalItems": false,
+                            "items": {
+                                "type": [
+                                    "array",
+                                    "integer",
+                                    "string"
+                                ]
+                            }
+                        }
+                    },
+                    "required": [
+                        "cost",
+                        "effects",
+                        "effects_raw"
+                    ]
+                },
+                "strings": {
+                    "type": "object",
+                    "additionalProperties": false,
+                    "properties": {
+                        "name": {
+                            "$ref": "schemaDefinitions.json#/definitions/translationStrings"
+                        },
+                        "desc": {
+                            "$ref": "schemaDefinitions.json#/definitions/translationStrings"
+                        }
+                    },
+                    "required": [
+                        "name",
+                        "desc"
+                    ]
+                }
+            },
+            "required": [
+                "name",
+                "cost",
+                "attack_count",
+                "attack_frames",
+                "effect_frames",
+                "move_type",
+                "damage_type",
+                "element_inflict",
+                "levels",
+                "min_level",
+                "max_level",
+                "strings"
+            ]
+        }
+    }
+}
