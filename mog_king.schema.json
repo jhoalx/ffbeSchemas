@@ -4,7 +4,7 @@
     "title": "Mog king Root schema object",
     "additionalProperties": false,
     "patternProperties": {
-        "^\\S*": {
+        "^$|[a-zA-Z ]+": {
             "type": "array",
             "title": "Mog king farmable item name",
             "description": "Matches any item name",
